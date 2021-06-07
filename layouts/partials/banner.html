@@ -13,6 +13,18 @@
 				<div class="block">
 					<h1 class="font-weight-bold mb-4 font-size-60">{{ .title | markdownify }}</h1>
 					<p class="mb-4">{{ .content | markdownify }}</p>
+					{{ if .googlePlayButton.enable }}
+					{{ with .googlePlayButton }}
+					<a href="{{.link|absLangURL}}"><img alt="{{.label}}" src="{{.image}}" width="150"></a>
+					{{ end }}
+					{{ end }}
+
+					{{ if .appStoreButton.enable }}
+					{{ with .appStoreButton }}
+					<a href="{{.link|absLangURL}}"><img alt="{{.label}}" src="{{.image}}" width="150"></a>
+					{{ end }}
+					{{ end }}
+					
 					{{ if .button.enable }}
 					{{ with .button }}
 					<a href="{{.link|absLangURL}}" class="btn btn-main">{{.label}}</a>
